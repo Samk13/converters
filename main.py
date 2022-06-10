@@ -1,9 +1,6 @@
-# import os
 import csv
 import yaml
 import logging
-
-# get csv_file as -i and yaml_file as -o
 
 logging.basicConfig(level=logging.INFO)
 
@@ -49,6 +46,7 @@ def csv_to_yaml(csv_file, yaml_file, schema=names_schema):
         for row in reader:
             logging.info(row)
             to_yaml.append(schema(row))
+    # write yaml file
     with open(yaml_file, "w") as yaml_file:
         for row in to_yaml:
             yaml.dump(row, yaml_file)
