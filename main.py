@@ -30,15 +30,19 @@ def names_schema(csv_obj):
     """return a dictionary with the schema for Invenio names"""
     return [
         {
-            "affiliations": {
-                "name": csv_obj["affiliations/0/name"],
-            },
+            "affiliations": [
+                {
+                    "name": csv_obj["affiliation_name"],
+                }
+            ],
             "family_name": csv_obj["family_name"],
             "given_name": csv_obj["given_name"],
-            "identifier": {
-                "identifier": csv_obj["identifiers/0/identifier"],
-                "scheme": csv_obj["identifiers/0/scheme"],
-            },
+            "identifiers": [
+                {
+                    "identifier": csv_obj["identifier"],
+                    "scheme": csv_obj["scheme"],
+                }
+            ],
         }
     ]
 
